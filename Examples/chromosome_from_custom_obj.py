@@ -9,10 +9,10 @@ class myNucleotide:
         return self._id # must be unicate in whole chromosome
 
     def getNumericId(self): # needed
-        return len(self._id) * ord(self._id[0]) # must be unicate in whole chromosome
+        return len(self._id) # must be unicate in whole chromosome
 
     def describe(self): # optimal
-        return "my {} with number {}".format(self.getId(), self.getNumericId())
+        return "mynucleotide {} with number {}".format(self.getId(), self.getNumericId())
 
 # load chromosome as chromosome on generic objects
 a  = Chromosome([myNucleotide("hello"), myNucleotide("word"), myNucleotide("1")])
@@ -24,6 +24,12 @@ print(a.seq(";"))
 b = wd + a
 
 print(b.seq(";"))
+
+# show histogram
+b.hist()
+
+# show chromosome
+b.show()
 
 # count of CG in chromosome
 print("count of WORD in A => {}".format(

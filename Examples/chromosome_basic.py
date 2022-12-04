@@ -10,6 +10,9 @@ print(a.seq())
 # show chromosome a
 a.show()
 
+# show histogram
+a.hist()
+
 # concate chromosomes
 b = cg + a
 
