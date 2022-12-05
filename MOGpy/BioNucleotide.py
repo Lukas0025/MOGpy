@@ -8,6 +8,14 @@ bioNucleotideLUT = {
     "U": "uracil"
 }
 
+bioNucleotideNumLUT = {
+    "A": 1,
+    "C": 2,
+    "G": 3,
+    "T": 4,
+    "U": 5
+}
+
 complementLUT = {
     "A": "T",
     "U": "A",
@@ -25,6 +33,9 @@ class BioNucleotide(DummyNucleotide):
             raise ValueError("Unknow nucleotide ID {}".format(id))
 
         super().__init__(id)
+
+    def getNumericId(self):
+        return bioNucleotideNumLUT[self.getId()]
 
     def complement(self):
         return BioNucleotide(complementLUT[self.getId()])

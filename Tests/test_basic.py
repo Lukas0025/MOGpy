@@ -56,3 +56,20 @@ def test_reverse():
     b = MOGpy.Chromosome.fromStr("ugtca")
 
     assert a.reverse() == b
+
+def test_reverse_loop():
+    a = MOGpy.Chromosome.fromStr("actgu")
+
+    assert a.reverse().reverse() == a
+
+def test_power():
+    a = MOGpy.Chromosome.fromStr("a")
+    b = MOGpy.Chromosome.fromStr("aaa")
+
+    assert a.pow(3) == b
+
+def test_power_opt():
+    a = MOGpy.Chromosome.fromStr("acg")
+    b = MOGpy.Chromosome.fromStr("acgacgacg")
+
+    assert a ** 3 == b

@@ -17,12 +17,35 @@ class Base:
     bounds = None
 
 class GeneticBase:
-    colors = Base.colors
+    colors = [
+        '#64F73F',
+        '#FFB340',
+        '#EB413C',
+        '#3C88EE',
+        '#3C88EE'
+    ]
 
     bounds = numpy.sort([
-        ord("A"),
-        ord("T"),
-        ord("G"),
-        ord("C"),
-        ord("U")
+        1,
+        2,
+        3,
+        4,
+        5
+    ])
+
+class pupy:
+    colors = [
+        '#FF83FA',
+        '#40E0D0',
+        '#FF83FA',
+        '#40E0D0',
+        '#40E0D0'
+    ]
+
+    bounds = numpy.sort([
+        1,
+        2,
+        3,
+        4,
+        5
     ])

@@ -12,6 +12,12 @@ class Chromosome:
     def __add__(self, chromosome2):
         return Chromosome(self._seq + chromosome2._seq)
 
+    def __pow__(self, num):
+        return self.pow(num)
+
+    def pow(self, num):
+        return Chromosome(self._seq * num)
+
     def __eq__(self, chromosome2):
         return self.getIds() == chromosome2.getIds()
 
@@ -31,7 +37,10 @@ class Chromosome:
         return len(self._seq)
 
     def reverse(self):
-        return Chromosome(reversed(self._seq))
+        return Chromosome(list(reversed(self._seq)))
+
+    def re(self, regex):
+        pass
 
     def reType(self, type):
         return type(self._seq)
