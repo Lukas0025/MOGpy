@@ -28,7 +28,7 @@ import MOGpy
 
 chromA = MOGpy.BioChromosome.fromStr("AATTCTAAACGCGAAACGGTTGACATGTGGGTTGGAGCC")
 chromB = MOGpy.BioChromosome.fromStr("AA")
-chromC = chromA + chromB
+chromC = chromA * chromB
 
 # show chromosome
 chromC.show()

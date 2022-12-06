@@ -9,7 +9,7 @@ class Chromosome:
     def __init__(self, seq = []):
         self._seq = seq
 
-    def __add__(self, chromosome2):
+    def __mul__(self, chromosome2):
         return self.__class__(self._seq + chromosome2._seq)
 
     def __pow__(self, num):

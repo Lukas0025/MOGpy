@@ -21,7 +21,7 @@ wd = Chromosome([myNucleotide("word")])
 print(a.seq(";"))
 
 # concate chromosomes
-b = wd + a
+b = wd * a
 
 print(b.seq(";"))
 

@@ -28,7 +28,7 @@ def test_concat():
     b = MOGpy.Chromosome.fromStr("cucu")
     c = MOGpy.Chromosome.fromStr("ababcucu")
 
-    assert a + b == c
+    assert a * b == c
     assert len(a) + len(b) == len(c)
 
 def test_contains():

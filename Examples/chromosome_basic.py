@@ -14,7 +14,7 @@ a.show()
 a.hist()
 
 # concate chromosomes
-b = cg + a
+b = cg * a
 
 # print concatenate chromosomes
 print(b.seq())
