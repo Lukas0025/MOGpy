@@ -10,13 +10,13 @@ class Chromosome:
         self._seq = seq
 
     def __add__(self, chromosome2):
-        return Chromosome(self._seq + chromosome2._seq)
+        return self.__class__(self._seq + chromosome2._seq)
 
     def __pow__(self, num):
         return self.pow(num)
 
     def pow(self, num):
-        return Chromosome(self._seq * num)
+        return self.__class__(self._seq * num)
 
     def __eq__(self, chromosome2):
         return self.getIds() == chromosome2.getIds()
@@ -37,9 +37,12 @@ class Chromosome:
         return len(self._seq)
 
     def reverse(self):
-        return Chromosome(list(reversed(self._seq)))
+        return self.__class__(list(reversed(self._seq)))
 
     def re(self, regex):
+        pass
+
+    def find(self, chromosome):
         pass
 
     def reType(self, type):
@@ -107,6 +110,7 @@ class Chromosome:
         if show:
             ploter.show()
 
+    @staticmethod
     def fromStr(string, uppercase = True, nucleotideClass = DummyNucleotide):
         if uppercase:
             string = string.upper()

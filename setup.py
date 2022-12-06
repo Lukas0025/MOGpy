@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="MOGpy",
-    version="0.0.1",
+    version="0.0.2",
     author="Lukáš Plevač",
     author_email="lukas@plevac.eu",
     description="Python lib for molecular genetic",
