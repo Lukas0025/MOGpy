@@ -4,13 +4,30 @@ from matplotlib import colors as plcolors
 import numpy as np
 from collections import Counter
 from . import Colors
+from .OrChromosome import OrChromosome
 
 class Chromosome:
     def __init__(self, seq = []):
         self._seq = seq
 
     def __mul__(self, chromosome2):
+        if hasattr(chromosome2, '_chromosomes'):
+            return OrChromosome.fromChromosome(self) * chromosome2
+
         return self.__class__(self._seq + chromosome2._seq)
+
+    def copy(self):
+        return self.__class__(self._seq)
+
+    def __add__(self, chromosome2):
+        chromosomes = [self]
+
+        if hasattr(chromosome2, '_chromosomes'):
+            chromosomes += chromosome2._chromosomes
+        else:
+            chromosomes.append(chromosome2)
+
+        return OrChromosome(chromosomes)
 
     def __pow__(self, num):
         return self.pow(num)
@@ -19,15 +36,27 @@ class Chromosome:
         return self.__class__(self._seq * num)
 
     def __eq__(self, chromosome2):
+        if hasattr(chromosome2, '_chromosomes'):
+            return OrChromosome.fromChromosome(self) == chromosome2
+
         return self.getIds() == chromosome2.getIds()
 
     def __ne__(self, chromosome2):
+        if hasattr(chromosome2, '_chromosomes'):
+            return OrChromosome.fromChromosome(self) != chromosome2
+
         return self.getIds() != chromosome2.getIds()
 
     def __contains__(self, chromosome2):
+        if hasattr(chromosome2, '_chromosomes'):
+            return chromosome2 in OrChromosome.fromChromosome(self)
+
         return chromosome2.numSeq(";") in self.numSeq(";")
 
     def count(self, chromosome2):
+        if hasattr(chromosome2, '_chromosomes'):
+            return OrChromosome.fromChromosome(self).count(chromosome2)
+
         return self.numSeq(";").count(chromosome2.numSeq(";"))
 
     def __getitem__(self, i):
