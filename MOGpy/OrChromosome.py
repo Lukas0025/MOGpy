@@ -90,10 +90,14 @@ class OrChromosome:
         return True in self.exec2d("__contains__", chromosome2)
 
     def __pow__(self, num):
-        return self.__class__(self.exec("pow", (num,)))
+        return self.pow(num)
     
     def pow(self, num):
-        return self.__class__(self.exec("pow", (num,)))
+        res = self.__class__(self._chromosomes)
+        for i in range(1, num):
+            res = res * res
+
+        return res
 
     def reverse(self):
         return self.__class__(self.exec("reverse", ()))

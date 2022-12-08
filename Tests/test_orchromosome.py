@@ -159,29 +159,27 @@ def test_powOp():
     a = MOGpy.BioChromosome.fromStr("ag")
     b = MOGpy.BioChromosome.fromStr("ta")
 
-    test  = MOGpy.BioChromosome.fromStr("gaga")
-    test1 = MOGpy.BioChromosome.fromStr("atat")
-
     f = (a + b) ** 2
-    f = f.reverse()
 
-    assert len(f) == 2
-    assert test in f
-    assert test1 in f
+    # (ag + ta) (ag + ta) = agag, agta, taag, tata
+
+    assert len(f) == 4
+    assert MOGpy.BioChromosome.fromStr("agag") in f
+    assert MOGpy.BioChromosome.fromStr("agta") in f
+    assert MOGpy.BioChromosome.fromStr("tata") in f
+    assert MOGpy.BioChromosome.fromStr("taag") in f
 
 def test_pow():
     a = MOGpy.BioChromosome.fromStr("ag")
     b = MOGpy.BioChromosome.fromStr("ta")
 
-    test  = MOGpy.BioChromosome.fromStr("gaga")
-    test1 = MOGpy.BioChromosome.fromStr("atat")
-
     f = (a + b).pow(2)
-    f = f.reverse()
 
-    assert len(f) == 2
-    assert test in f
-    assert test1 in f
+    assert len(f) == 4
+    assert MOGpy.BioChromosome.fromStr("agag") in f
+    assert MOGpy.BioChromosome.fromStr("agta") in f
+    assert MOGpy.BioChromosome.fromStr("tata") in f
+    assert MOGpy.BioChromosome.fromStr("taag") in f
 
 def test_complement():
     a = MOGpy.BioChromosome.fromStr("ttaagatttgcgctttgccaactgtacacccaacctcgg")
