@@ -9,12 +9,22 @@ from .OrChromosome import OrChromosome
 class Chromosome:
     def __init__(self, seq = []):
         self._seq = seq
+        self._description = None
 
     def __mul__(self, chromosome2):
         if hasattr(chromosome2, '_chromosomes'):
             return OrChromosome.fromChromosome(self) * chromosome2
 
         return self.__class__(self._seq + chromosome2._seq)
+
+    def describe(self):
+        return {
+            'Description': self._description,
+            'Lenght': self.__len__()
+        }
+
+    def setDescription(self, description):
+        self._description = description
 
     def copy(self):
         return self.__class__(self._seq)
