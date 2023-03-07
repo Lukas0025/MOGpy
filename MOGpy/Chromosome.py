@@ -149,6 +149,9 @@ class Chromosome:
         if show:
             ploter.show()
 
+    def gene(self, start, end):
+        return self.__class__(self[start:end])
+
     @staticmethod
     def fromStr(string, uppercase = True, nucleotideClass = DummyNucleotide):
         if uppercase:

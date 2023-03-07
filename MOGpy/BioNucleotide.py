@@ -5,7 +5,9 @@ bioNucleotideLUT = {
     "C": "cytosine",
     "G": "guanine",
     "T": "thymine",
-    "U": "uracil"
+    "U": "uracil",
+    "N": "not defined",
+    "-": "space"
 }
 
 bioNucleotideNumLUT = {
@@ -13,7 +15,9 @@ bioNucleotideNumLUT = {
     "C": 2,
     "G": 3,
     "T": 4,
-    "U": 5
+    "U": 5,
+    "N": 6,
+    "-": 7
 }
 
 complementLUT = {
@@ -21,7 +25,9 @@ complementLUT = {
     "U": "A",
     "T": "A",
     "G": "C",
-    "C": "G"
+    "C": "G",
+    "N": "N",
+    "-": "-"
 }
 
 invComplementLUT = {v: k for k, v in complementLUT.items()}
@@ -29,7 +35,7 @@ invComplementLUT = {v: k for k, v in complementLUT.items()}
 class BioNucleotide(DummyNucleotide):
     def __init__(self, id):
 
-        if not(id in "ACGTU"):
+        if not(id in "ACGTUN-"):
             raise ValueError("Unknow nucleotide ID {}".format(id))
 
         super().__init__(id)

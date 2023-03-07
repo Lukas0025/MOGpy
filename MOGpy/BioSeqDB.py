@@ -6,6 +6,9 @@ c = BioChromosome.fromStr("C")
 t = BioChromosome.fromStr("T")
 g = BioChromosome.fromStr("G")
 u = BioChromosome.fromStr("U")
+n = BioChromosome.fromStr("N")
+
+space = BioChromosome.fromStr("-")
 
 class DNA:
     # Stop codons
